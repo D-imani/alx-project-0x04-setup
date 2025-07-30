@@ -1,12 +1,12 @@
 import { createContext, useContext,  useState, ReactNode } from "react";
 
 interface CountContextProps {
-  count: number
+  count: number;
   increment: () => void ;
   decrement: () => void ;
 }
 
-export const CountContext = createContext<CountContextProps | undefined>(undefined)
+export const CountContext = createContext<CountContextProps | undefined>(undefined);
 
 export const CountProvider = ({ children }: { children: ReactNode}) => {
 
@@ -19,8 +19,8 @@ export const CountProvider = ({ children }: { children: ReactNode}) => {
     <CountContext.Provider value={{ count, increment, decrement }}>
       {children}
     </CountContext.Provider>
-  )
-}
+  );
+};
 
 
 
@@ -31,5 +31,5 @@ export const useCount = () => {
     throw new Error("useCount must be within a Count Provider")
   }
 
-  return context
+  return context ;
 }
